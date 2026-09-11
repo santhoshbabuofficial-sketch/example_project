@@ -39,71 +39,71 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/disk/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/disk/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/interrupt_controller/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/interrupt_controller/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/misc/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/misc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/pcie/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/pcie/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/usb/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/usb/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/usb_c/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/usb_c/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/clock_control/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/clock_control/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/console/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/console/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/gpio/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/gpio/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/pinctrl/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/pinctrl/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/pwm/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/pwm/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/reset/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/reset/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/serial/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/serial/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/drivers/timer/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/drivers/timer/cmake_install.cmake")
 endif()
 

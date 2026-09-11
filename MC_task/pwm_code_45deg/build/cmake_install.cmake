@@ -1,4 +1,4 @@
-# Install script for directory: /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg
+# Install script for directory: /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

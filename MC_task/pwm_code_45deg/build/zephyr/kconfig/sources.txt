@@ -1,9 +1,9 @@
-/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/Kconfig/Kconfig.dts
-/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/Kconfig/Kconfig.modules
-/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/Kconfig/arch/Kconfig
-/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/Kconfig/soc/Kconfig
-/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/Kconfig/soc/Kconfig.defconfig
-/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/Kconfig/soc/Kconfig.soc
+/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/Kconfig/Kconfig.dts
+/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/Kconfig/Kconfig.modules
+/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/Kconfig/arch/Kconfig
+/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/Kconfig/soc/Kconfig
+/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/Kconfig/soc/Kconfig.defconfig
+/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/Kconfig/soc/Kconfig.soc
 /home/babu-inc-5831/zephyr-sdk-0.16.8/cmake/zephyr/Kconfig
 /home/babu-inc-5831/zephyrproject/modules/debug/percepio/DFM/kernelports/Zephyr/Kconfig
 /home/babu-inc-5831/zephyrproject/modules/debug/percepio/DFM/kernelports/Zephyr/storageports/Filesystem/Kconfig

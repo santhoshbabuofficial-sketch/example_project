@@ -1,0 +1,54 @@
+/*
+ * Closed-Loop Current Limiting (single coil/phase) - board overlay
+ * (NUCLEO-G474RE)
+ *
+ * Pin map:
+ *   Coil driver PWM (IR2104 pin 2)      -> PC0  (TIM1_CH1)
+ *   Coil driver SD  (IR2104 pin 3)      -> PC1  (plain GPIO, ACTIVE_HIGH = enabled)
+ *   Current sensor (ACS712)             -> PA0  (ADC1_IN1)
+ *
+ * NOTE: this task has no LCD, no voltage sensor, no second bridge leg, and
+ * no button - the loop starts at 50% duty and begins regulating toward the
+ * fixed 200 mA current limit the instant it boots. Regulation feedback is
+ * read over the console (UART) as per-cycle ref/measured/error/duty log
+ * lines instead of an LCD.
+ */
+
+&timers1 {
+	status = "okay";
+
+	coil_pwm_tim1: pwm {
+		status = "okay";
+		pinctrl-0 = <&tim1_ch1_pc0>;
+		pinctrl-names = "default";
+	};
+};
+
+&adc1 {
+	status = "okay";
+	pinctrl-0 = <&adc1_in1_pa0>;
+	pinctrl-names = "default";
+	st,adc-clock-source = <SYNC>;
+	st,adc-prescaler = <4>;
+};
+
+&gpioc {
+	status = "okay";
+};
+
+/ {
+	coil_driver_enable_pin {
+		compatible = "gpio-leds";
+
+		coil_en: coil_en {
+			gpios = <&gpioc 1 GPIO_ACTIVE_HIGH>;
+			label = "COIL_DRIVER_SD";
+		};
+	};
+
+	aliases {
+		coilpwm = &coil_pwm_tim1;
+		coilen = &coil_en;
+		currentsensor = &adc1;
+	};
+};

@@ -20,12 +20,12 @@ constexpr gpio_dt_spec kGpioPin2 = GPIO_DT_SPEC_GET(DT_PATH(zephyr_user), pin2_g
 constexpr gpio_dt_spec kGpioPin3 = GPIO_DT_SPEC_GET(DT_PATH(zephyr_user), pin3_gpios); // PC3, per overlay.
 
 // --- Motor characteristics -----------------------------------------------
-constexpr uint32_t kMotorRatedRpm = 100U;                          // Motor shaft speed at 100% duty 
+constexpr uint32_t kMotorRatedRpm = 320U;                          // Motor shaft speed at 100% duty 
 
 
-constexpr uint32_t kTargetDegrees = 6U;                          // Output-shaft angle to turn per step.
+constexpr uint32_t kTargetDegrees = 75U;                          // Output-shaft angle to turn per step.
 constexpr uint32_t kDrivePercent = 20U;                           // PWM duty (= assumed % of rated speed) used while turning.
-constexpr uint32_t kRepeatCount = 60U;                             // Number of 45-degree steps to run.
+constexpr uint32_t kRepeatCount = 1U;                             // Number of 45-degree steps to run.
 constexpr uint32_t kPauseMs = 1000U;                              // Stop time between each step.
 
 // --- Derived timing -------------------------------------------------------

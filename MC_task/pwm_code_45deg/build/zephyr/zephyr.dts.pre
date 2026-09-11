@@ -3082,8 +3082,8 @@ stm32_lp_tick_source: &lptim1 {
  status = "okay";
 };
 # 0 "<command-line>" 2
-# 1 "/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/boards/nucleo_g474re.overlay" 1
-# 11 "/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/boards/nucleo_g474re.overlay"
+# 1 "/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/boards/nucleo_g474re.overlay" 1
+# 11 "/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/boards/nucleo_g474re.overlay"
 &timers1 {
  status = "okay";
 

@@ -1,12 +1,12 @@
 linker.cmd: \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/arch/arm/cortex_m/scripts/linker.ld \
- /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/include/generated/zephyr/autoconf.h \
+ /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/include/generated/zephyr/autoconf.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/sections.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/section_tags.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/toolchain.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/toolchain/gcc.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/devicetree.h \
- /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/include/generated/zephyr/devicetree_generated.h \
+ /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/include/generated/zephyr/devicetree_generated.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/irq_multilevel.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/sys/util.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/sys/util_macro.h \
@@ -33,14 +33,14 @@ linker.cmd: \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/devicetree_regions.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/linker-defs.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/toolchain/common.h \
- /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/include/generated/zephyr/offsets.h \
+ /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/include/generated/zephyr/offsets.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/linker-tool.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/linker-tool-gcc.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/kernel/mm.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/kernel/internal/mm.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/linker-devnull.h \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/rel-sections.ld \
- /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/include/generated/snippets-rom-start.ld \
+ /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/include/generated/snippets-rom-start.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/../arch/common/rom_start_address.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/../arch/common/fill_with_zeros.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/../arch/common/rom_start_offset.ld \
@@ -60,22 +60,22 @@ linker.cmd: \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/common-rom/common-rom-debug.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/common-rom/common-rom-interrupt-controllers.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/common-rom/common-rom-misc.ld \
- /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/include/generated/snippets-rom-sections.ld \
+ /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/include/generated/snippets-rom-sections.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/thread-local-storage.ld \
- /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/include/generated/snippets-rodata.ld \
+ /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/include/generated/snippets-rodata.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/../arch/arm/core/swi_tables.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/kobject-rom.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/cplusplus-rom.ld \
- /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/include/generated/snippets-ram-sections.ld \
+ /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/include/generated/snippets-ram-sections.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/../arch/common/ramfunc.ld \
- /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/include/generated/snippets-ramfunc-section.ld \
- /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/include/generated/snippets-rwdata.ld \
+ /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/include/generated/snippets-ramfunc-section.ld \
+ /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/include/generated/snippets-rwdata.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/common-ram.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/kobject-data.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/cplusplus-ram.ld \
- /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/include/generated/snippets-data-sections.ld \
- /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/include/generated/snippets-noinit.ld \
- /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/include/generated/snippets-sections.ld \
+ /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/include/generated/snippets-data-sections.ld \
+ /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/include/generated/snippets-noinit.ld \
+ /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/include/generated/snippets-sections.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/intlist.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/ram-end.ld \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/linker/debug-sections.ld

@@ -39,11 +39,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/soc/common/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/soc/common/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/soc/soc/stm32g474xx/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/soc/soc/stm32g474xx/cmake_install.cmake")
 endif()
 

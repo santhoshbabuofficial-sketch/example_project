@@ -39,46 +39,46 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/lib/crc/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/lib/crc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/lib/libc/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/lib/libc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/lib/posix/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/lib/posix/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/lib/cpp/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/lib/cpp/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/lib/hash/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/lib/hash/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/lib/heap/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/lib/heap/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/lib/mem_blocks/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/lib/mem_blocks/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/lib/os/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/lib/os/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/build/zephyr/lib/utils/cmake_install.cmake")
+  include("/home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/build/zephyr/lib/utils/cmake_install.cmake")
 endif()
 

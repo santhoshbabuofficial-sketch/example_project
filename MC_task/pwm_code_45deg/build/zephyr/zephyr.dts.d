@@ -35,4 +35,4 @@ empty_file.o: /home/babu-inc-5831/zephyrproject/zephyr/misc/empty_file.c \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/dt-bindings/pinctrl/stm32-pinctrl-common.h \
  /home/babu-inc-5831/zephyrproject/zephyr/boards/st/nucleo_g474re/arduino_r3_connector.dtsi \
  /home/babu-inc-5831/zephyrproject/zephyr/include/zephyr/dt-bindings/input/input-event-codes.h \
- /home/babu-inc-5831/Downloads/example_projects/pwm_code_45deg/boards/nucleo_g474re.overlay
+ /home/babu-inc-5831/Downloads/example_projects/MC_task/pwm_code_45deg/boards/nucleo_g474re.overlay
