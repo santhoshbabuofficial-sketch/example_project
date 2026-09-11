@@ -1,0 +1,13 @@
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/*
+ * SPI1 on the Arduino header: SCK=PA5, MISO=PA6, MOSI=PA7, CS=PB6.
+ * CS is driven as a plain GPIO (cs-gpios) rather than hardware NSS, which
+ * is the standard, driver-independent way Zephyr controls chip select.
+ */
+&spi1 {
+	pinctrl-0 = <&spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7>;
+	pinctrl-names = "default";
+	cs-gpios = <&gpiob 6 GPIO_ACTIVE_LOW>;
+	status = "okay";
+};

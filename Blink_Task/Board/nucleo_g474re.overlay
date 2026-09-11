@@ -1,0 +1,20 @@
+
+
+&gpioc {
+	status = "okay";
+};
+
+/ {
+	blink_led_pins {
+		compatible = "gpio-leds";
+
+		led_pc13: led_pc13 {
+			gpios = <&gpioc 13 GPIO_ACTIVE_HIGH>;
+			label = "BLINK_LED_PC13";
+		};
+	};
+
+	aliases {
+		blinkled = &led_pc13;
+	};
+};

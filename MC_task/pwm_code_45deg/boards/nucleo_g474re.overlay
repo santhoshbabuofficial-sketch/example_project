@@ -1,0 +1,38 @@
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/*
+ * Fixed 50% PWM @ 20kHz test - board overlay (NUCLEO-G474RE)
+ *
+ * Pin map:
+ *   PWM output (TIM1_CH1) -> PC0
+ *   Plain GPIO outputs     -> PC2, PC3
+ */
+
+&timers1 {
+	status = "okay";
+
+	pwm_test_tim1: pwm {
+		status = "okay";
+		pinctrl-0 = <&tim1_ch1_pc0>;
+		pinctrl-names = "default";
+	};
+};
+
+&gpioc {
+	status = "okay";
+};
+
+/ {
+	aliases {
+		pwmtest = &pwm_test_tim1;
+	};
+
+	/* Standard Zephyr idiom for ad-hoc GPIO pins that don't need a
+	 * dedicated binding (no custom compatible needed) - referenced
+	 * in code via GPIO_DT_SPEC_GET(DT_PATH(zephyr_user), ..._gpios). */
+	zephyr,user {
+		pin2-gpios = <&gpioc 2 GPIO_ACTIVE_HIGH>;
+		pin3-gpios = <&gpioc 3 GPIO_ACTIVE_HIGH>;
+	};
+};
+

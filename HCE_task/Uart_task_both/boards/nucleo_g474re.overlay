@@ -1,0 +1,12 @@
+&lpuart1 {
+    
+	current-speed = <115200>;
+	status = "okay";
+};
+
+ / { 
+	aliases
+              {
+                 uart1 = &lpuart1;
+				 };
+};

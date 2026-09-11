@@ -1,0 +1,39 @@
+#include <zephyr/dt-bindings/pinctrl/stm32-pinctrl.h>
+
+/*
+ * Two independent PWM outputs @ 20kHz - board overlay (NUCLEO-G474RE)
+ *
+ * Pin map:
+ *   TIM1_CH1 -> PC0  (forward)
+ *   TIM1_CH2 -> PC1  (reverse)
+ */
+
+&pinctrl {
+	/* Custom node: TIM1_CH2 is not in this board's default pinctrl
+	 * set, so it is declared here directly (PC1, AF2 - same AF family
+	 * as the existing PC0/CH1 node). */
+	tim1_ch2_pc1_custom: tim1_ch2_pc1_custom {
+		pinmux = <STM32_PINMUX('C', 1, AF2)>;
+		slew-rate = "very-high-speed";
+	};
+};
+
+&timers1 {
+	status = "okay";
+
+	pwm_test_tim1: pwm {
+		status = "okay";
+		pinctrl-0 = <&tim1_ch1_pc0 &tim1_ch2_pc1_custom>;
+		pinctrl-names = "default";
+	};
+};
+
+&gpioc {
+	status = "okay";
+};
+
+/ {
+	aliases {
+		pwmtest = &pwm_test_tim1;
+	};
+};
