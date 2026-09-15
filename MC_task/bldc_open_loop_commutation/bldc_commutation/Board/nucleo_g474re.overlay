@@ -1,0 +1,60 @@
+/*
+ * Open-loop BLDC six-step commutation - board overlay (NUCLEO-G474RE)
+ *
+ * Pin map
+ * -------
+ *   TIM1_CH1 -> PC0   phase A IN   (gate driver input)
+ *   TIM1_CH2 -> PC1   phase B IN
+ *   TIM1_CH3 -> PC2   phase C IN
+ *
+ *   PB0            phase A SD   (IR2104 shutdown, active low)
+ *   PB1            phase B SD
+ *   PB2            phase C SD
+ *
+ *   PB5            scope sync   (pulses once per electrical revolution)
+ *
+ * All three PWM channels live on TIM1, so they share one prescaler and one
+ * counter. That is what keeps the three phases phase-coherent.
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+&timers1 {
+	status = "okay";
+
+	st,prescaler = <0>;                     /* Full timer clock: 170 MHz -> plenty of duty resolution at 20 kHz. */
+
+	bldc_pwm: pwm {
+		status = "okay";
+		pinctrl-0 = <&tim1_ch1_pc0 &tim1_ch2_pc1 &tim1_ch3_pc2>;
+		pinctrl-names = "default";
+	};
+};
+
+&gpiob {
+	status = "okay";
+};
+
+&gpioc {
+	status = "okay";
+};
+
+/ {
+	bldc_motor: bldc_motor {
+		compatible = "custom,bldc-motor";
+
+		/* cells: <channel> <period-ns> <flags> */
+		pwms = <&bldc_pwm 1 PWM_KHZ(20) PWM_POLARITY_NORMAL>,
+		       <&bldc_pwm 2 PWM_KHZ(20) PWM_POLARITY_NORMAL>,
+		       <&bldc_pwm 3 PWM_KHZ(20) PWM_POLARITY_NORMAL>;
+		pwm-names = "phase-a", "phase-b", "phase-c";
+
+		/* IR2104 SD is active low - declared here, invisible to the app. */
+		enable-gpios = <&gpiob 0 GPIO_ACTIVE_LOW>,
+			       <&gpiob 1 GPIO_ACTIVE_LOW>,
+			       <&gpiob 2 GPIO_ACTIVE_LOW>;
+
+		sync-gpios = <&gpiob 5 GPIO_ACTIVE_HIGH>;
+	};
+};

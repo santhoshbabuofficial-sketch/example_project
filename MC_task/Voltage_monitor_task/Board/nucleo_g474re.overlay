@@ -1,0 +1,54 @@
+/*
+ * Voltage supervision task - board overlay (NUCLEO-G474RE)
+ *
+ * Pin map:
+ *   Voltage sensor (0-25V module)   -> PA4  (ADC2_IN17)
+ *   NORMAL state trigger            -> PC0  (plain GPIO, ACTIVE_HIGH)
+ *   FAULT  state trigger            -> PC1  (plain GPIO, ACTIVE_HIGH)
+ *
+ * NOTE: in the Motor_control_task project PC0 is TIM1_CH1 (IR2104 #1 PWM
+ * input) and PC1 is SD1 (IR2104 #1 shutdown). This is a standalone
+ * project, so those pins are free here - but the two overlays cannot be
+ * merged as-is without moving either the trigger pins or IR2104 #1.
+ *
+ * The two trigger pins are declared ACTIVE_HIGH and are driven strictly
+ * one-at-a-time by VoltageMonitor::ApplyState(). If your downstream
+ * hardware (relay board, opto-isolator) is active-low, change the flag to
+ * GPIO_ACTIVE_LOW here rather than inverting the logic in code - the
+ * mutual-exclusion guarantee is written in terms of logical state, so it
+ * survives the polarity change unchanged.
+ */
+
+&adc2 {
+	status = "okay";
+	pinctrl-0 = <&adc2_in17_pa4>;
+	pinctrl-names = "default";
+	st,adc-clock-source = <SYNC>;
+	st,adc-prescaler = <4>;
+};
+
+&gpioc {
+	status = "okay";
+};
+
+/ {
+	voltage_trigger_pins {
+		compatible = "gpio-leds";
+
+		normal_trigger: normal_trigger {
+			gpios = <&gpioc 0 GPIO_ACTIVE_HIGH>;
+			label = "VOLTAGE_NORMAL_TRIGGER";
+		};
+
+		fault_trigger: fault_trigger {
+			gpios = <&gpioc 1 GPIO_ACTIVE_HIGH>;
+			label = "VOLTAGE_FAULT_TRIGGER";
+		};
+	};
+
+	aliases {
+		voltagesensor = &adc2;
+		normaltrigger = &normal_trigger;
+		faulttrigger = &fault_trigger;
+	};
+};

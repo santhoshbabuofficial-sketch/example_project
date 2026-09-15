@@ -1,0 +1,91 @@
+/*
+ * Sensorless BLDC six-step commutation - board overlay (NUCLEO-G474RE)
+ *
+ * HARDWARE ASSUMPTION - please verify against your actual driver board:
+ * each phase is backed by an integrated three-phase half-bridge driver
+ * (DRV8313 / L6234 class) that:
+ *   - takes one PWM input per phase to set high-side duty (low side is
+ *     handled internally, with dead time),
+ *   - has a per-phase enable/tri-state pin so the undriven phase can
+ *     float for back-EMF sensing.
+ * If you're instead using discrete MOSFETs with separate high/low gate
+ * drivers (e.g. 3x IR2104, as in the brushed-motor project), the pin
+ * list below still works as a starting point, but PhaseDriver in
+ * src/phase_driver.cpp will need to drive two gate signals per phase
+ * instead of one.
+ *
+ * Phase PWM  -> TIM1 CH1/CH2/CH3 (PA8 / PA9 / PA10)
+ * Phase EN   -> PB0 / PB1 / PB2   (placeholder - move to match wiring)
+ * Phase BEMF -> ADC1 IN1/IN2/IN3  (placeholder - via resistor dividers
+ *               scaled into the ADC's reference range)
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/adc/adc.h>
+
+&timers1 {
+	status = "okay";
+
+	pwm_u: pwm_ch1 {
+		status = "okay";
+		pinctrl-0 = <&tim1_ch1_pa8>;
+		pinctrl-names = "default";
+	};
+	pwm_v: pwm_ch2 {
+		status = "okay";
+		pinctrl-0 = <&tim1_ch2_pa9>;
+		pinctrl-names = "default";
+	};
+	pwm_w: pwm_ch3 {
+		status = "okay";
+		pinctrl-0 = <&tim1_ch3_pa10>;
+		pinctrl-names = "default";
+	};
+};
+
+&gpiob {
+	status = "okay";
+};
+
+&adc1 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	channel@1 {
+		reg = <1>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+	channel@2 {
+		reg = <2>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+	channel@3 {
+		reg = <3>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+};
+
+/ {
+	aliases {
+		bldc-pwm-u = &pwm_u;
+		bldc-pwm-v = &pwm_v;
+		bldc-pwm-w = &pwm_w;
+	};
+
+	zephyr,user {
+		io-channels = <&adc1 1>, <&adc1 2>, <&adc1 3>;
+		phase-en-gpios = <&gpiob 0 GPIO_ACTIVE_HIGH>,
+				  <&gpiob 1 GPIO_ACTIVE_HIGH>,
+				  <&gpiob 2 GPIO_ACTIVE_HIGH>;
+	};
+};

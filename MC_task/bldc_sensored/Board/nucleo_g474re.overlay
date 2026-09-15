@@ -1,0 +1,70 @@
+/*
+ * Sensored (hall-effect) BLDC six-step commutation - board overlay
+ * (NUCLEO-G474RE)
+ *
+ * HARDWARE ASSUMPTION - please verify against your actual driver board:
+ * each phase is backed by an integrated three-phase half-bridge driver
+ * (DRV8313 / L6234 class) that takes one PWM input per phase for duty
+ * and a per-phase enable/tri-state pin - same as the sensorless project.
+ * If you're using discrete MOSFETs with separate gate drivers instead,
+ * only src/phase_driver.cpp needs to change.
+ *
+ * Phase PWM  -> TIM1 CH1/CH2/CH3 (PA8 / PA9 / PA10)
+ * Phase EN   -> PB0 / PB1 / PB2   (placeholder - move to match wiring)
+ * Hall U/V/W -> PC6 / PC7 / PC8   (placeholder - all on GPIOC so they
+ *               share a single gpio_callback registration; move to a
+ *               different port and add a second callback if needed)
+ *
+ * Hall sensors are assumed open-collector/open-drain (the common case,
+ * e.g. A3144-style sensors), hence the internal pull-ups below. If your
+ * hall boards already have their own pull-ups (many do), the internal
+ * ones are harmless but you can drop GPIO_PULL_UP.
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&timers1 {
+	status = "okay";
+
+	pwm_u: pwm_ch1 {
+		status = "okay";
+		pinctrl-0 = <&tim1_ch1_pa8>;
+		pinctrl-names = "default";
+	};
+	pwm_v: pwm_ch2 {
+		status = "okay";
+		pinctrl-0 = <&tim1_ch2_pa9>;
+		pinctrl-names = "default";
+	};
+	pwm_w: pwm_ch3 {
+		status = "okay";
+		pinctrl-0 = <&tim1_ch3_pa10>;
+		pinctrl-names = "default";
+	};
+};
+
+&gpiob {
+	status = "okay";
+};
+
+&gpioc {
+	status = "okay";
+};
+
+/ {
+	aliases {
+		bldc-pwm-u = &pwm_u;
+		bldc-pwm-v = &pwm_v;
+		bldc-pwm-w = &pwm_w;
+	};
+
+	zephyr,user {
+		phase-en-gpios = <&gpiob 0 GPIO_ACTIVE_HIGH>,
+				  <&gpiob 1 GPIO_ACTIVE_HIGH>,
+				  <&gpiob 2 GPIO_ACTIVE_HIGH>;
+
+		hall-gpios = <&gpioc 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>,
+			      <&gpioc 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>,
+			      <&gpioc 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+	};
+};

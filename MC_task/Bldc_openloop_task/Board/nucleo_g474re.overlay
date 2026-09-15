@@ -1,0 +1,92 @@
+/*
+ * Open-Loop BLDC Motor Commutation - board overlay (NUCLEO-G474RE)
+ *
+ * Pin map:
+ *   Phase U PWM   -> PC0  (TIM1_CH1)
+ *   Phase V PWM   -> PC1  (TIM1_CH2)
+ *   Phase W PWM   -> PC2  (TIM1_CH3)
+ *   Phase U EN    -> PB0  (plain GPIO, ACTIVE_HIGH = phase driven)
+ *   Phase V EN    -> PB1  (plain GPIO, ACTIVE_HIGH = phase driven)
+ *   Phase W EN    -> PB2  (plain GPIO, ACTIVE_HIGH = phase driven)
+ *   Step sync     -> PB4  (scope aid, toggles on every commutation)
+ *   Cycle sync    -> PB5  (scope aid, HIGH during step 0 only)
+ *
+ * All three phases come from TIM1, so they share one timer base and one
+ * PWM device, differing only by channel. This carries over the PC0 /
+ * TIM1_CH1 / 20 kHz arrangement from the earlier fixed-duty pwm_code
+ * project and extends it across all three channels.
+ *
+ * HARDWARE ASSUMPTION - verify against your driver board: each phase is
+ * backed by a half-bridge driver (DRV8313 / L6234 class) taking one PWM
+ * input plus one enable/tri-state pin. If you are driving discrete
+ * MOSFETs through IR2104 pairs instead, the enable pins map onto the SD
+ * (shutdown) inputs - note those are ACTIVE_LOW on the IR2104, so change
+ * the flag here rather than inverting the logic in code.
+ *
+ * The two sync pins carry no motor current. They exist so the commutation
+ * sequence is visible on a scope next to the phase waveforms: trigger on
+ * cycle sync (PB5) for a stable view of all six steps, or on step sync
+ * (PB4) to isolate one step boundary.
+ */
+
+&timers1 {
+	status = "okay";
+
+	bldc_pwm_tim1: pwm {
+		status = "okay";
+		pinctrl-0 = <&tim1_ch1_pc0 &tim1_ch2_pc1 &tim1_ch3_pc2>;
+		pinctrl-names = "default";
+	};
+};
+
+&gpiob {
+	status = "okay";
+};
+
+&gpioc {
+	status = "okay";
+};
+
+/ {
+	bldc_phase_enable_pins {
+		compatible = "gpio-leds";
+
+		en_u: en_u {
+			gpios = <&gpiob 0 GPIO_ACTIVE_HIGH>;
+			label = "BLDC_PHASE_U_EN";
+		};
+
+		en_v: en_v {
+			gpios = <&gpiob 1 GPIO_ACTIVE_HIGH>;
+			label = "BLDC_PHASE_V_EN";
+		};
+
+		en_w: en_w {
+			gpios = <&gpiob 2 GPIO_ACTIVE_HIGH>;
+			label = "BLDC_PHASE_W_EN";
+		};
+	};
+
+	bldc_scope_sync_pins {
+		compatible = "gpio-leds";
+
+		step_sync: step_sync {
+			gpios = <&gpiob 4 GPIO_ACTIVE_HIGH>;
+			label = "BLDC_STEP_SYNC";
+		};
+
+		cycle_sync: cycle_sync {
+			gpios = <&gpiob 5 GPIO_ACTIVE_HIGH>;
+			label = "BLDC_CYCLE_SYNC";
+		};
+	};
+
+	aliases {
+		bldcpwm = &bldc_pwm_tim1;
+		enu = &en_u;
+		env = &en_v;
+		enw = &en_w;
+		stepsync = &step_sync;
+		cyclesync = &cycle_sync;
+	};
+};
